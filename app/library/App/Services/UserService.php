@@ -141,10 +141,10 @@ class UserService extends \Phalcon\Mvc\User\Plugin
     {
         $user = $this->authManager->getUser();
 
-		if (count($user) == 0) {
-			throw new UserException(ErrorCodes::AUTH_NOUSERNAME);
-		}
-		$user = \User::findFirst($user->id);
+	if (count($user) == 0) {
+		throw new UserException(ErrorCodes::AUTH_NOUSERNAME);
+	}
+	$user = \User::findFirst($user->id);
 
         if (!$user) {
 
