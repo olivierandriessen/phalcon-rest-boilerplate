@@ -16,7 +16,7 @@ class ExportController extends CollectionController
         /** @var \Phalcon\Config $config */
         $config = $this->di->get(Services::CONFIG);
 
-        $documentation = new Documentation($config->application->title, $config->hostName);
+        $documentation = new Documentation($config->application->title, $config->hostName . $config->application->baseUri);
         $documentation->addManyCollections($this->application->getCollections());
         $documentation->addManyRoutes($this->application->getRouter()->getRoutes());
 
@@ -28,7 +28,7 @@ class ExportController extends CollectionController
         /** @var \Phalcon\Config $config */
         $config = $this->di->get(Services::CONFIG);
 
-        $postmanCollection = new ApiCollection($config->application->title, $config->hostName);
+        $postmanCollection = new ApiCollection($config->application->title, $config->hostName . $config->application->baseUri);
         $postmanCollection->addManyCollections($this->application->getCollections());
         $postmanCollection->addManyRoutes($this->application->getRouter()->getRoutes());
 

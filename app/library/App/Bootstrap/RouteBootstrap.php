@@ -36,7 +36,7 @@ class RouteBootstrap implements BootstrapInterface
 
             $view->setVar('title', $config->application->title);
             $view->setVar('description', $config->application->description);
-            $view->setVar('documentationPath', $config->hostName . '/export/documentation.json');
+            $view->setVar('documentationPath', $config->hostName . $config->application->baseUri . '/export/documentation.json');
             return $view->render('general/documentation');
         });
     }
