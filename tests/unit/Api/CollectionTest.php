@@ -4,9 +4,9 @@ namespace PhalconRest\Test\Unit\Api;
 
 use App\Constants\AclRoles;
 use Phalcon\Acl;
-use PhalconRest\Api\Collection;
-use PhalconRest\Api\Endpoint;
-use PhalconRest\Constants\PostedDataMethods;
+use PhalconRest\Api\ApiCollection;
+use PhalconRest\Api\ApiEndpoint;
+use PhalconApi\Constants\PostedDataMethods;
 
 class CollectionTest extends \Codeception\TestCase\Test {
 
@@ -15,7 +15,7 @@ class CollectionTest extends \Codeception\TestCase\Test {
 
     protected function _before() {
 
-        $this->collection = Collection::factory('/books')
+        $this->collection = ApiCollection::factory('/books')
             ->name('Books')
             ->description('a short description');
     }
@@ -43,8 +43,7 @@ class CollectionTest extends \Codeception\TestCase\Test {
     public function testGetEndpoints() {
 
         $endpoints = [
-            Endpoint::get('/all', 'all'),
-            Endpoint::get('/find/:id', 'find')
+            ApiEndpoint::get('/all', 'all')
         ];
 
         foreach($endpoints as $endpoint) {
