@@ -2,9 +2,9 @@
 
 namespace PhalconRest\Test\Unit\Api;
 
-use PhalconRest\Api\Endpoint;
-use PhalconRest\Constants\HttpMethods;
-use PhalconRest\Constants\PostedDataMethods;
+use PhalconRest\Api\ApiEndpoint;
+use PhalconApi\Constants\HttpMethods;
+use PhalconApi\Constants\PostedDataMethods;
 
 class EndpointTest extends \Codeception\TestCase\Test {
 
@@ -15,7 +15,7 @@ class EndpointTest extends \Codeception\TestCase\Test {
 
     protected function _before() {
 
-        $this->endpoint = Endpoint::get('/all', 'all')
+        $this->endpoint = ApiEndpoint::get('/all', 'all')
             ->name('All')
             ->description('a short description')
             ->exampleResponse(self::EXAMPLE_RESPONSE);

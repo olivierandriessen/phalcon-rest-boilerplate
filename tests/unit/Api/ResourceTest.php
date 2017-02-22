@@ -4,7 +4,7 @@ namespace PhalconRest\Test\Unit\Api;
 
 use App\Model\Album;
 use App\Transformers\AlbumTransformer;
-use PhalconRest\Api\Resource;
+use PhalconRest\Api\ApiResource;
 
 class ResourceTest extends \Codeception\TestCase\Test {
 
@@ -13,7 +13,7 @@ class ResourceTest extends \Codeception\TestCase\Test {
 
     protected function _before() {
 
-        $this->resource = Resource::factory('/albums')
+        $this->resource = ApiResource::factory('/albums')
             ->model(Album::class)
             ->transformer(AlbumTransformer::class)
             ->itemKey('album')
